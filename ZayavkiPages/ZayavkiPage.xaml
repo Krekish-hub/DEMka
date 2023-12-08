@@ -1,0 +1,91 @@
+﻿<Page x:Class="DEMka.ZayavkiPages.ZayavkiPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DEMka.ZayavkiPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ZayavkiPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <Label
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Content="ЗАЯВКИ"/>
+        <StackPanel
+            Grid.Row="1"
+            Orientation="Horizontal">
+
+            <DataGrid
+                Name="ListViewZayavki"
+                Grid.Row="1"
+                AutoGenerateColumns="False" 
+                ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}" 
+                CellStyle="{StaticResource DataGridCellStyle}"
+                Margin="10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn 
+                        Header="Заявка"
+                        Binding="{Binding NameApp}"
+                        Width="100"/>
+                    <DataGridTextColumn 
+                        Header="Статус"
+                        Binding="{Binding Status.StatusName}"
+                        Width="100"/>
+                    <DataGridTextColumn 
+                        Header=""
+                        Binding="{Binding }"
+                        Width="100"/>
+                    <DataGridTextColumn 
+                        Header=""
+                        Binding="{Binding }"
+                        Width="100"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <StackPanel
+                Orientation="Vertical">
+                <!-- Button to Toggle Sorting Panel Visibility -->
+                <Button 
+                    Content="ФИЛЬТР" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    Margin="10"
+                    Name="BtnFiltr"
+                    Click="BtnFiltr_Click"/>
+
+                <Button
+                    Content="Создать заявку"
+                    Name="CreateZayavka"
+                    Click="CreateZayavka_Click"/>
+
+                <!-- Sliding Panel for Sorting -->
+                <Border
+                    Grid.Row="1"
+                    x:Name="SortingPanel"
+                    Background="LightGray" 
+                    Margin="10"
+                    Visibility="Collapsed">
+                    <ComboBox 
+                        Name="CmbFiltr"
+                        SelectionChanged="CmbFiltr_SelectionChanged"
+                        Width="200" 
+                        Height="30" 
+                        VerticalAlignment="Top" 
+                        HorizontalAlignment="Left"
+                        Margin="10">
+                    </ComboBox>
+                </Border>
+                
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Page>

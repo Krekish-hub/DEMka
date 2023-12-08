@@ -1,0 +1,54 @@
+﻿<Window x:Class="DEMka.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DEMka"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        Background="Transparent"
+        WindowState="Normal"
+        ResizeMode="NoResize"
+        Height="550" Width="800">
+    <Border>
+        
+        <Grid>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel
+                Grid.Row="0">
+                <TextBlock 
+                    Style="{StaticResource Header}"
+                    Text="Техно Сервис"/>
+            </StackPanel>
+            
+            <StackPanel
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+                <Button 
+                    Style="{StaticResource WindowButton}"
+                        Name="BtnMinimal"
+                        Click="BtnMinimal_Click"/>
+                <Button
+                    Style="{StaticResource WindowButton}"
+                        Name="BtnMax"
+                        Click="BtnMax_Click"/>
+                <Button
+                    Style="{StaticResource WindowButton}"
+                        Name="BtnClose"
+                        Click="BtnClose_Click"/>
+            </StackPanel>
+
+            <Frame 
+                Name="MainFrame"
+                Grid.Row="1"
+                NavigationUIVisibility="Hidden"/>
+
+        </Grid>
+    </Border>
+
+</Window>
